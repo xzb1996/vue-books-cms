@@ -4,7 +4,7 @@
 {
     url:"/mock/login/signIn",
     type:"post",
-    接受参数:{
+    接收参数:{
         username:"",
         password:""
     },

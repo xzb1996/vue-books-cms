@@ -61,6 +61,32 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: '/library-manage',
+    component: Layout,
+    meta: {
+      icon:'el-icon-notebook-2',
+      title: "图书管理"
+    },
+    children: [
+      {
+        path: 'books-record',
+        component: () => import('@/views/library-manage/books-record'),
+        name: 'booksRecord',
+        meta: {
+          title: "图书档案"
+        }
+      },
+      {
+        path: 'readers-record',
+        component: () => import('@/views/library-manage/readers-record'),
+        name: 'readersRecord',
+        meta: {
+          title: "借书日志"
+        }
+      }
+    ]
   }
 ]
 
