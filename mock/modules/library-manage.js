@@ -1,6 +1,15 @@
 import Mock from 'mockjs'
-import { getQuery } from "../../src/utils/notice"
-
+import Url from 'url'
+/**
+ * 记录：
+ *  URL模块用来解析和处理url的字符串，提供如下方法：
+ *  1、parse
+ *      url.parse(urlStr,queryString,AnalysisHost) 将url字符串地址转成一个对象
+ *          urlStr:要解析的url地址
+ *          queryString：解析出来的是查询字符串还是对象，true为对象，false为字符串
+ *  2、format(url,options) format方法与parse方法相反，用于根据某个对象生成URL的字符串。
+ *  3、resolve(from, to) 方法用于拼接URL, 它根据相对URL拼接成新的URL；
+ */
 const booksAmount = 9794
 const LogAmount = 888
 const booksList = []
@@ -32,9 +41,9 @@ export default [
         url: "/mock/library-manage/bookslist",
         type: "get",
         response: res => {
-            let { bookName, limit = 10, page = 1 } = getQuery(res.url)
+            let { bookName, limit = 10, page = 1 } = Url.parse(res.url, true).query;
             const mockList = booksList.filter(item => {
-                if (bookName && item.bookName !== +bookName) return false
+                if (bookName && item.bookName !== bookName) return false
                 return true
             })
             const pageList = mockList.filter((item, index) => index < limit * page && index >= limit * (page - 1))
@@ -53,7 +62,7 @@ export default [
         url: "/mock/library-manage/borrowlog",
         type: "get",
         response: res => {
-            let { borrowStart, borrowEnd, limit = 10, page = 1 } = getQuery(res.url)
+            let { borrowStart, borrowEnd, limit = 10, page = 1 } = Url.parse(res.url, true).query;
             const mockList = bottowLog.filter(item => {
                 if (borrowStart && item.borrowStart >= borrowStart) return false
                 if (borrowEnd && item.borrowEnd <= borrowEnd) return false
@@ -82,5 +91,5 @@ export default [
             }
         }
     },
-    
+
 ]

@@ -5,7 +5,7 @@
       <el-col :span="24" style="padding:20px 0 0 20px;">
         <el-form-item>
           <el-input
-            v-model="formData.name"
+            v-model="formData.bookName"
             placeholder="书名"
             clearable
           ></el-input>
@@ -138,7 +138,7 @@ export default {
   data() {
     return {
       formData: {
-        name: "",
+        bookName: "",
         limit: 10,
         page: 1
       },

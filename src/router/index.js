@@ -87,7 +87,23 @@ const routes = [
         }
       }
     ]
-  }
+  },
+  {
+    path: '/personal-center',
+    component: Layout,
+    leaf: true,
+    children: [
+      {
+        path: '',
+        component: () => import('@/views/personal-center'),
+        name: 'personalCenter',
+        meta: {
+          icon:'el-icon-user-solid',
+          title: "个人中心"
+        }
+      }
+    ]
+  },
 ]
 
 export default new VueRouter({
