@@ -1,5 +1,5 @@
 export default [
-    // 用户登录信息
+    // 用户登录
     {
         url: "/mock/login/signIn",
         type: "post",
@@ -9,6 +9,9 @@ export default [
                 return {
                     result: 1,
                     errorCode: 200,
+                    data: {
+                        token: (new Date().getTime())
+                    },
                     message: '登录成功'
                 }
             } else {
@@ -19,6 +22,24 @@ export default [
                 }
             }
 
+        }
+    },
+    // 用户信息
+    {
+        url: "/mock/login/userInfo",
+        type: "get",
+        response: res => {
+            return {
+                result: 1,
+                errorCode: 200,
+                data: {
+                    username:'张三',
+                    email:'123466@qq.com',
+                    individualResume:'我命由我不由天',
+                    address:'',
+                    iphone:'123456'
+                },
+            }
         }
     }
 ]

@@ -104,6 +104,24 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/js-test',
+    component: Layout,
+    meta: {
+      icon:'el-icon-star-on',
+      title: "js练习"
+    },
+    children: [
+      {
+        path: 'random-name',
+        component: () => import('@/views/js-test/random-name'),
+        name: 'randomName',
+        meta: {
+          title: "随机人名"
+        }
+      }
+    ]
+  }
 ]
 
 export default new VueRouter({

@@ -9,6 +9,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css' // 样式文件需单独引入
 // 引入全局样式
 import '@/styles/index.scss'
+
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 

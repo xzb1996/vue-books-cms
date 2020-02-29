@@ -58,18 +58,22 @@ export default {
     signIn() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.getUserList();
+          // 将用户名和密码进行存储
+          this.$store
+            .dispatch("user/login", this.loginForm)
+            .then(res => {
+              if (res.result === 1) {
+                MessageNotice("success", res.message);
+                this.$router.push("/home");
+              } else {
+                MessageNotice("error", res.message);
+              }
+            })
+            .catch(() => {
+              console.log("error submit!!");
+            });
         }
       });
-    },
-    async getUserList() {
-      let res = await getUserList(this.loginForm);
-      if (res.result === 1) {
-        MessageNotice("success", res.message);
-        this.$router.push("/home");
-      } else {
-        MessageNotice("error", res.message);
-      }
     }
   }
 };
