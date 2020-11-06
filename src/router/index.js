@@ -59,6 +59,14 @@ const routes = [
         meta: {
           title: "菜单2"
         }
+      },
+      {
+        path: 'menu3',
+        component: () => import('@/views/menu/menu3'),
+        name: 'menu3',
+        meta: {
+          title: "菜单3"
+        }
       }
     ]
   },

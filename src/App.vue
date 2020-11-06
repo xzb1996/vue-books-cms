@@ -3,17 +3,17 @@
     <router-view></router-view>
   </div>
 </template>
- 
+
 <script>
 export default {
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 <style scoped lang="scss">
-#app{
+#app {
   position: relative;
   width: 100%;
   height: 100%;

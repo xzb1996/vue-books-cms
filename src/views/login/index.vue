@@ -62,6 +62,7 @@ export default {
           this.$store
             .dispatch("user/login", this.loginForm)
             .then(res => {
+              console.log(res,'res')
               if (res.result === 1) {
                 MessageNotice("success", res.message);
                 this.$router.push("/home");

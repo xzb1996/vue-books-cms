@@ -5,10 +5,14 @@ module.exports = {
         // 自动打开页面
         open: true,
         // proxy: {
-        //     "/api": {
-        //         target: "http://localhost:8080",
+        //     "/mock": {
+        //         target: "http://127.0.0.1:3000",
         //         // 是否允许代理
-        //         changeOrigin: true
+        //         changeOrigin: true,
+        //         // 地址重启
+        //         pathRewrite: {
+        //             "^mock": ""
+        //         }
         //     }
         // }
     },

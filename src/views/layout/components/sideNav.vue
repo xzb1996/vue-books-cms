@@ -51,7 +51,7 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      routers: []
+      routers: [],
     };
   },
   created() {
@@ -60,7 +60,7 @@ export default {
   computed: {
     // ...mapGetters(["router","isCollapse"])
   },
-  method: {}
+  method: {},
 };
 </script>
 

@@ -28,6 +28,13 @@ server.interceptors.response.use((response) => {
         return res
     }
 }, (err) => {
+    // 会话过期
+    if(err && err.response){
+        if(err.response.status === 401){
+            // 失败的处理功能
+            return Promise.reject(err)
+        }
+    }
     MessageNotice("error", "服务器错误")
     return Promise.reject(err);
 })
